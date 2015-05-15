@@ -8,71 +8,78 @@
                 10 9 8                  8 9 10
 
 */
+
 using System;
 using System.Linq;
 
-class SortArrayOfNumbers
+namespace SortArrayOfNumbers
 {
-    //VALIDATE INPUT
-    public static bool ValidateInput(string[] input)
+    class SortArrayOfNumbers
     {
-        int output = int.MinValue;
-
-        return input.All(index => int.TryParse(index, out output));
-    }
-
-    //PRINT ERROR MESSAGE
-    public static void PrintInvalidInput(string[] input)
-    {
-        if (input.Length < 1)
+        //VALIDATE INPUT
+        public static bool ValidateInput(string[] input)
         {
-            Console.WriteLine("Input must not be empty!");
+            int output;
+
+            return input.All(index => int.TryParse(index, out output));
         }
-        else
-        {
-            Console.WriteLine(
-                "The numbers should be entered from the console {0}" +
-                "on a single line, separated by a space.{0}" +
-                "Notice: Allowed only valid integer numbers.{0}",
-                Environment.NewLine
-            );
-        }
-    }
 
-    //MAIN
-    static void Main()
-    {
-        bool isValidInput = false;
-        
-        //ASK FOR INPUT WHILE PARSE SUCCESS
-        do
+        //PRINT ERROR MESSAGE
+        public static void PrintInvalidInput(string[] input)
         {
-            Console.Write("Type: ");
-            //GET INPUT FROM CONSOLE AND SPLIT IT BY SPACE
-            string[] input = Console.ReadLine().Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries);
-
-            //IS VALID IF CONTAIN INTEGER NUMBERS AND IS NOT EMPTY
-            isValidInput = ValidateInput(input) && input.Length > 0;
-            
-            //IF INPUT IS NOT VALID, PRINT ERROR MESSAGE
-            if (!isValidInput)
+            if (input.Length < 1)
             {
-                Console.Clear();
-                PrintInvalidInput(input);
+                Console.WriteLine("Input must not be empty!");
             }
-            //ELSE INPUT IS VALID, CONTINUE
             else
             {
-                //PARSE INPUT FROM STRINGS TO INTEGERS
-                int[] numbers = Array.ConvertAll(input, int.Parse);
-                //SORT INPUTS
-                Array.Sort(numbers);
-                //PRINT INPUTS
-                foreach (int number in numbers)
-                {
-                    Console.WriteLine(number);
-                }
+                Console.WriteLine(
+                    "The numbers should be entered from the console {0}" +
+                    "on a single line, separated by a space.{0}" +
+                    "Notice: Allowed only valid integer numbers.{0}",
+                    Environment.NewLine
+                    );
             }
-        } while (!isValidInput);
+        }
+
+        //MAIN
+        static void Main()
+        {
+            bool isValidInput = true;
+        
+            //ASK FOR INPUT WHILE PARSE SUCCESS
+            do
+            {
+                Console.Write("Type: ");
+                string strInput = Console.ReadLine();
+                if (strInput == null) continue;
+
+                //GET INPUT FROM CONSOLE AND SPLIT IT BY SPACE
+                string[] input = strInput.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries);
+
+                //IS VALID IF CONTAIN INTEGER NUMBERS AND IS NOT EMPTY
+                isValidInput = ValidateInput(input) && input.Length > 0;
+            
+                //IF INPUT IS NOT VALID, PRINT ERROR MESSAGE
+                if (!isValidInput)
+                {
+                    Console.Clear();
+                    PrintInvalidInput(input);
+                }
+                //ELSE INPUT IS VALID, CONTINUE
+                else
+                {
+                    //PARSE INPUT FROM STRINGS TO INTEGERS
+                    int[] numbers = Array.ConvertAll(input, int.Parse);
+                    //SORT INPUTS
+                    Array.Sort(numbers);
+                    //PRINT INPUTS
+                    foreach (int number in numbers)
+                    {
+                        Console.WriteLine(number);
+                    }
+                }
+            } while (!isValidInput);
+        }
     }
 }
