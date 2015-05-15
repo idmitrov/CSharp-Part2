@@ -51,10 +51,10 @@ class SortArrayOfNumbers
             //GET INPUT FROM CONSOLE AND SPLIT IT BY SPACE
             string[] input = Console.ReadLine().Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries);
 
-            //IS VALID IF CONTAIN NUMBERS AND IS NOT EMPTY
+            //IS VALID IF CONTAIN INTEGER NUMBERS AND IS NOT EMPTY
             isValidInput = ValidateInput(input) && input.Length > 0;
             
-            //IF INPUT IS NOT VALUD, PRINT ERROR MESSAGE
+            //IF INPUT IS NOT VALID, PRINT ERROR MESSAGE
             if (!isValidInput)
             {
                 Console.Clear();
