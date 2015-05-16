@@ -110,6 +110,7 @@ namespace CategorizeNumbersAndFindMinMaxAvg
                         //INIT LISTS FOR CATEGORIES
                         var nonZeroFractionNumbers = new List<double>();
                         var zeroFractionNumbers = new List<double>();
+
                         //CATEGORIZE NUMBERS INTO BOTH LISTss
                         CategorizeNumber(numbers, zeroFractionNumbers, nonZeroFractionNumbers);
 
