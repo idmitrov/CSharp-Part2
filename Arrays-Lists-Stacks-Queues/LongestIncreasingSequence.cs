@@ -72,18 +72,21 @@ namespace LongestIncreasingSequence
                         break;
                     }
                 }
+                //PRINT CURRENT SEQUENCE
                 Console.WriteLine(tempString);
 
+                //IF CURRENT SEQUENCE IS LONGEST THAN PREV SEQUENCE (LONGEST SEQUENCE)
                 if (tempString.Replace("-", "").Length > longestSequence.Length)
                 {
                     longestSequence = tempString;
                 }
             }
+            //RETURN LONGEST SEQUENCE
             return longestSequence;
         }
 
         //MAIN
-        private static void Main()
+        public static void Main()
         {
             bool isValidInput;
             string strInput;
