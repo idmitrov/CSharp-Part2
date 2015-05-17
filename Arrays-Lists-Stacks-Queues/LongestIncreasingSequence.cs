@@ -52,17 +52,20 @@ namespace LongestIncreasingSequence
 
             for (int i = 0; i < numbersLength; i++)
             {
+                //INIT TEMP STRING
                 string tempString = numbers[i].ToString();
+                //GET CURRENT NUMBER
                 int currentNumber = numbers[i];
 
                 for (int j = i + 1; j < numbersLength; j++)
                 {
-                    //GET CURRENT NUMBER AND NEXT NUMBER
+                    //GET CURRENT NEXT NUMBER
                     int nextNumber = numbers[j];
 
                     //IF SEQUENCE INCREASE (CURRENT < NEXT)
                     if (nextNumber > currentNumber)
                     {
+                        //SET CURRENT AS NEXT
                         currentNumber = nextNumber;
                         i++;
                         tempString += " " + currentNumber;
@@ -105,7 +108,6 @@ namespace LongestIncreasingSequence
                 {
                     PrintErrorMessage(strInput);
                 }
-
             } while (!isValidInput);
 
             //SPLIT INPUT
