@@ -65,11 +65,13 @@ namespace FillTheMatrix
             return matrix;
         }
 
-        public static void PrintMatrix(int[,] matrix, int colCount, int rowCount)
+        public static void PrintMatrix(int[,] matrix)
         {
-            for (int row = 0; row < colCount; row++)
+            int matrixSize = (int) Math.Sqrt(matrix.Length);
+
+            for (int row = 0; row < matrixSize; row++)
             {
-                for (int col = 0; col < rowCount; col++)
+                for (int col = 0; col < matrixSize; col++)
                 {
                     Console.Write("{0, 3} ", matrix[row, col]);
                 }
@@ -119,11 +121,11 @@ namespace FillTheMatrix
 
                         //PRINT MATRIX PATTERN A
                         Console.WriteLine("\r\nPattern A");
-                        PrintMatrix(matrixA, colCount, rowCount);
+                        PrintMatrix(matrixA);
 
                         //PRINT MATRIX PATTERN B
                         Console.WriteLine("\r\nPattern B");
-                        PrintMatrix(matrixB, colCount, rowCount);
+                        PrintMatrix(matrixB);
                     }
                 }
                 //PARSE NOT SUCCESS
