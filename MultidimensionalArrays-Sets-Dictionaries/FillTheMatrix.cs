@@ -14,23 +14,23 @@ namespace FillTheMatrix
         {
             int[,] matrix = new int[colCount, rowCount];
 
-            int oddRowCellValue = 1,
-                evenRowCellValueStart = 1;
-            int test = 1;
-
             if (pattern == "A")
             {
+                int cellValue = 1;
+
                 for (int row = 0; row < rowCount; row++)
                 {
                     for (int col = 0; col < colCount; col++)
                     {
-                        matrix[col, row] = oddRowCellValue++;
+                        matrix[col, row] = cellValue++;
                     }
                 }
             }
             else if (pattern == "B")
             {
-                int evenRowCellValue = 0;
+                int oddRowCellValue = 1,
+                    evenRowCellValueStart = 1;
+                int evenRowCellValue = 1;
 
                 for (int col = 0; col < rowCount; col++)
                 {
@@ -131,7 +131,7 @@ namespace FillTheMatrix
                 {
                     isValidInput = false;
                     Console.Clear();
-                    Console.WriteLine("Input must containg only valid integer numbers.");
+                    Console.WriteLine("Input must contain only valid integer numbers.");
                 }
             } while (!isValidInput);
         }
