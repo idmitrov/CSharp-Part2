@@ -43,29 +43,42 @@ namespace FillTheMatrix
         static void Main()
         {
             bool isValidInput;
-            int colCount, rowCount = int.MinValue;
-
+            
+            //ASK FOR INPUT WHILE PARSE SUCCESS AND IS VALID INPUT
             do
             {
                 //OUTPUT VALIDATION
+                int colCount, rowCount;
                 
                 //COL INPUT
                 Console.Write("Number of colums: ");
                 string colInput = Console.ReadLine();
+
                 //ROW INPUT
                 Console.Write("Number of rows: ");
                 string rowInput = Console.ReadLine();
+                
                 //IF PARSE SUCCESS
                 if (int.TryParse(colInput, out colCount) &&
                     int.TryParse(rowInput, out rowCount))
                 {
                     //SET DEFAULT VALUE
                     isValidInput = true;
+                    
                     //IF COL OR ROW IS LESS THAN 1
                     if (colCount < 1 || rowCount < 1)
                     {
-                        Console.WriteLine("0 is not allowed.");
+                        Console.Clear();
+                        Console.WriteLine("Expected number greater than 0.");
                         isValidInput = false;
+                    }
+                    else
+                    {
+                        //CREATE MATRIX
+                        int[,] matrix = CreateMatrix(colCount, rowCount);
+
+                        //PRINT MATRIX
+                        PrintMatrix(matrix, colCount, rowCount);
                     }
                 }
                 //PARSE NOT SUCCESS
@@ -75,11 +88,7 @@ namespace FillTheMatrix
                     Console.Clear();
                     Console.WriteLine("Input must containg only valid integer numbers.");
                 }
-            } while (!isValidInput || colCount < 1 || rowCount < 1);
-
-            int[,] matrix = CreateMatrix(colCount, rowCount);
-
-            PrintMatrix(matrix, colCount, rowCount);
+            } while (!isValidInput);
         }
     }
 }
