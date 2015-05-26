@@ -10,11 +10,11 @@
                             bye
 */
 
-using System;
-using System.Collections.Generic;
-
 namespace SequenceOfEquealStrings
 {
+	using System;
+	using System.Collections.Generic;
+	
     class SequenceOfEquealStrings
     {
         public static Dictionary<string, string> CheckReapetingWords(string[] input)
