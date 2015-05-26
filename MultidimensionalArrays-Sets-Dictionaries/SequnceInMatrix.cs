@@ -52,7 +52,7 @@ namespace SequnceInMatrix
             {
                 for (int col = 0; col < matrixCols; col++)
                 {
-                    //COLS
+                    //FIND BY COLS
                     if (col + 1 < matrixCols)
                     {
                         if (matrix[row, col] == matrix[row, col + 1])
@@ -79,11 +79,10 @@ namespace SequnceInMatrix
                             }
                         }
                     }
-                    //END OF CHECK
                 }
             }
 
-            //ROWS
+            //FIND BY ROWS
             for (int col = 0; col < matrixCols; col++)
             {
                 for (int row = 0; row < matrixRows; row++)
@@ -117,7 +116,7 @@ namespace SequnceInMatrix
                 }
             }
             
-            //DIAGONAL
+            //FIND BY DIAGONAL
             for (int row = 0; row < matrixRows; row++)
             {
                 for (int col = 0; col < matrixCols; col++)
