@@ -31,12 +31,11 @@
                                                             ->everywhere: Behemoth
 */
 
-using System.Linq;
-
 namespace NightLife
 {
     using System;
-    using System.Collections.Generic;
+    using System.Collections.Generic;	
+	using System.Linq;
 
     class NightLife
     {
