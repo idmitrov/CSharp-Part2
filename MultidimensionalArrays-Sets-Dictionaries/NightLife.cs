@@ -34,8 +34,8 @@
 namespace NightLife
 {
     using System;
-    using System.Collections.Generic;	
-	using System.Linq;
+    using System.Collections.Generic;
+    using System.Linq;
 
     class NightLife
     {
@@ -63,6 +63,7 @@ namespace NightLife
                             venue = data[1],
                             performers = data[2];
 
+                        //IF ANY (CITY/VENUE/PERFORMER(S)) is EMPTY PRINT ERROR
                         if (city.Trim() == "" || venue.Trim() == "" || performers.Trim() == "")
                         {
                             Console.WriteLine("Fields can not be empty");
@@ -71,13 +72,13 @@ namespace NightLife
                         {
                             //INIT LIST
                             var performersList = performers.Split(' ').ToList();
-                            //FILL LIST
 
                             //IF MOST POPULAR CLUBS DOESNT CONTAIN THE CITY
                             if (!mostPopularClubs.ContainsKey(city))
                             {
                                 //GROUP VENU DETAILS AND PERFORMERS LIST INTO DICTIONARY
                                 var venueDetails = new Dictionary<string, List<string>> {{venue, performersList}};
+                              
                                 //ADD CITY AND VENU DETAILS(VENU/LIST OF PERFORMERS)
                                 mostPopularClubs.Add(city, venueDetails);
                             }
@@ -114,6 +115,7 @@ namespace NightLife
                     }
                     else
                     {
+                        //AFTER "END" PRINT OUTPUT IF EXIST ELSE PRINT COSING MESSAGE
                         Console.Clear();
                         Console.WriteLine(inputLine != "END"
                             ? "Invalid entry"
